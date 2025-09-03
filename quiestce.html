@@ -1,114 +1,102 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Qui est-ce ? - Carl-Frédéric</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #fff;
-      font-family: 'Press Start 2P', cursive, sans-serif;
-      opacity: 0;
-      transition: opacity 0.8s ease;
-    }
-    body.fade-in { opacity: 1; }
-    body.fade-out { opacity: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qui est-ce ? - Carl-Frédéric</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  font-family: 'Press Start 2P', cursive, sans-serif;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+body.fade-in { opacity: 1; }
+body.fade-out { opacity: 0; }
 
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      display: grid;
-      grid-template-columns: 200px 1fr 200px;
-      align-items: center;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.8);
-      z-index: 1000;
-    }
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
+  align-items: center;
+  padding: 20px;
+  background: rgba(255,255,255,0.8);
+  z-index: 1000;
+}
+.logo { width: 200px; height: auto; cursor: pointer; }
+.menu-center { text-align: center; transform: translateX(-60px) translateY(70px); }
+.menu-right { text-align: right; transform: translateX(-60px) translateY(70px); }
+.navbar a { font-size: 0.9rem; text-decoration: none; color: #333; transition: all 0.2s ease; }
+.navbar a:hover { font-weight: bold; }
 
-    .logo { width: 200px; height: auto; cursor: pointer; }
+.content {
+  padding-top: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
 
-    .menu-center { text-align: center; transform: translateX(-60px) translateY(70px); }
-    .menu-right { text-align: right; transform: translateX(-60px) translateY(70px); }
+.photo-carl { width: 300px; max-width: 80%; opacity:0; transform: translateY(20px); animation: fadeInUp 1.5s ease forwards; animation-delay: 0.5s; }
+.bio { max-width: 400px; color: #333; line-height: 1.5; font-size: 0.85rem; opacity:0; transform: translateY(20px); animation: fadeInUp 1.5s ease forwards; animation-delay: 1s; }
 
-    .navbar a { font-size: 0.9rem; text-decoration: none; color: #333; transition: all 0.2s ease; }
-    .navbar a:hover { font-weight: bold; }
+@keyframes fadeInUp { to { opacity:1; transform: translateY(0); } }
 
-    .content {
-      padding-top: 250px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-
-    .photo-carl {
-      width: 300px;
-      max-width: 80%;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1.5s ease forwards;
-      animation-delay: 0.5s;
-    }
-
-    .bio {
-      max-width: 400px;
-      color: #333;
-      line-height: 1.5;
-      font-size: 0.85rem;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1.5s ease forwards;
-      animation-delay: 1s;
-    }
-
-    @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
-  </style>
+/* --- Responsive Mobile --- */
+@media screen and (max-width: 600px) {
+  .navbar { grid-template-columns: 100px 1fr 100px; padding: 10px; }
+  .logo { width: 100px; }
+  .menu-center, .menu-right { transform: translate(0,50px); font-size:0.8rem; }
+  .content { flex-direction: column; padding-top:180px; gap:20px; }
+  .bio { max-width: 90%; text-align: justify; }
+  .photo-carl { width: 80%; }
+}
+</style>
 </head>
 <body>
 
-  <div class="navbar">
-    <img src="svg/logo.svg" alt="Logo Carl-Frédéric" class="logo" id="logo-link">
-    <div class="menu-center">
-      <a href="quiestce.html" class="transition-link">Qui est-ce ?</a>
-    </div>
-    <div class="menu-right">
-      <a href="contact.html" class="transition-link">Contact</a>
-    </div>
+<div class="navbar">
+  <img src="svg/logo.svg" alt="Logo Carl-Frédéric" class="logo" id="logo-link">
+  <div class="menu-center">
+    <a href="quiestce.html" class="transition-link">Qui est-ce ?</a>
   </div>
-
-  <div class="content">
-    <div class="bio">
-      <p>Passionné par les aventures, les créations audiovisuelles ont toujours fait parties intégrantes de ma vie. C'est après l'obtention d'un baccalauréat en géomatique que le fruit de mes intérets créatifs se concrétisent en services audiovisuels au profit de gens avec des projets inspirants.</p>
-      <p>C'est en faisant n'importe quoi qu'on devient n'importe qui.</p>
-    </div>
-    <img src="svg/carl.svg" alt="Carl-Frédéric" class="photo-carl">
+  <div class="menu-right">
+    <a href="contact.html" class="transition-link">Contact</a>
   </div>
+</div>
 
-  <script>
-    window.addEventListener("DOMContentLoaded", () => { document.body.classList.add("fade-in"); });
+<div class="content">
+  <div class="bio">
+    <p>Passionné par les aventures, les créations audiovisuelles ont toujours fait parties intégrantes de ma vie. C'est après l'obtention d'un baccalauréat en géomatique que le fruit de mes intérets créatifs se concrétisent en services audiovisuels au profit de gens avec des projets inspirants.</p>
+    <p>C'est en faisant n'importe quoi qu'on devient n'importe qui.</p>
+  </div>
+  <img src="svg/carl.svg" alt="Carl-Frédéric" class="photo-carl">
+</div>
 
-    document.querySelectorAll(".transition-link").forEach(link => {
-      link.addEventListener("click", function(e) {
-        e.preventDefault();
-        const href = this.getAttribute("href");
-        document.body.classList.remove("fade-in");
-        document.body.classList.add("fade-out");
-        setTimeout(() => { window.location.href = href; }, 800);
-      });
-    });
-
-    document.getElementById("logo-link").addEventListener("click", function() {
-      document.body.classList.remove("fade-in");
-      document.body.classList.add("fade-out");
-      setTimeout(() => { window.location.href = "index.html"; }, 800);
-    });
-  </script>
+<script>
+window.addEventListener("DOMContentLoaded", () => { document.body.classList.add("fade-in"); });
+document.querySelectorAll(".transition-link").forEach(link => {
+  link.addEventListener("click", function(e) {
+    e.preventDefault();
+    const href = this.getAttribute("href");
+    document.body.classList.remove("fade-in");
+    document.body.classList.add("fade-out");
+    setTimeout(() => { window.location.href = href; }, 800);
+  });
+});
+document.getElementById("logo-link").addEventListener("click", function() {
+  document.body.classList.remove("fade-in");
+  document.body.classList.add("fade-out");
+  setTimeout(() => { window.location.href = "index.html"; }, 800);
+});
+</script>
 
 </body>
 </html>

@@ -43,13 +43,7 @@
     .menu-center { text-align: center; transform: translateX(-40px) translateY(70px); }
     .menu-right { text-align: right; transform: translateX(-60px) translateY(70px); }
 
-    .navbar a {
-      font-size: 0.9rem;
-      text-decoration: none;
-      color: #333;
-      transition: all 0.2s ease;
-      cursor: pointer;
-    }
+    .navbar a { font-size: 0.9rem; text-decoration: none; color: #333; transition: all 0.2s ease; cursor: pointer; }
     .navbar a:hover { font-weight: bold; }
 
     .content { padding-top: 250px; }
@@ -62,13 +56,26 @@
       animation-delay: 0.5s;
     }
     @keyframes fadeInVideo { to { opacity: 1; } }
+
+    /* --- Responsive Mobile --- */
+    @media screen and (max-width: 600px) {
+      .navbar {
+        grid-template-columns: 100px 1fr 100px;
+        padding: 10px;
+      }
+      .logo { width: 100px; }
+      .menu-center, .menu-right {
+        transform: translate(0, 50px);
+        font-size: 0.8rem;
+      }
+      .content { padding-top: 180px; }
+    }
   </style>
 </head>
 <body>
 
   <div class="navbar">
     <img src="svg/logo.svg" alt="Logo Carl-Frédéric" class="logo" id="logo-link">
-
     <div class="menu-center">
       <a href="quiestce.html" class="transition-link">Qui est-ce ?</a>
     </div>
@@ -85,10 +92,7 @@
   </div>
 
   <script>
-    window.addEventListener("DOMContentLoaded", () => {
-      document.body.classList.add("fade-in");
-    });
-
+    window.addEventListener("DOMContentLoaded", () => { document.body.classList.add("fade-in"); });
     document.querySelectorAll(".transition-link").forEach(link => {
       link.addEventListener("click", function(e) {
         e.preventDefault();
@@ -98,7 +102,6 @@
         setTimeout(() => { window.location.href = href; }, 800);
       });
     });
-
     document.getElementById("logo-link").addEventListener("click", function() {
       document.body.classList.remove("fade-in");
       document.body.classList.add("fade-out");
