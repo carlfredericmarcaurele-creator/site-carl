@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carl-Frédéric</title>
+  <!-- Import typo rétro -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+      font-family: 'Press Start 2P', cursive, sans-serif;
+      opacity: 0; /* Démarre caché pour fade in */
+      transition: opacity 0.8s ease; /* Transition douce */
+    }
+
+    body.fade-in {
+      opacity: 1; /* Quand la classe est active → affiché */
+    }
+
+    body.fade-out {
+      opacity: 0; /* Quand on quitte → fondu */
+    }
+
+    /* Barre du haut */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 200px 1fr 200px; /* logo | centre | droite */
+      align-items: center;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.8);
+      z-index: 1000;
+    }
+
+    /* Logo */
+    .logo {
+      width: 200px;
+      height: auto;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* Liens */
+    .menu-center {
+      text-align: center;
+      transform: translateX(-40px) translateY(70px);
+    }
+
+    .menu-right {
+      text-align: right;
+      transform: translateX(-60px) translateY(70px);
+    }
+
+    .navbar a {
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: #333;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .navbar a:hover {
+      font-weight: bold;
+    }
+
+    /* Vidéo */
+    .content {
+      padding-top: 250px; /* espace pour la navbar */
+    }
+
+    .video-fullwidth {
+      display: block;
+      width: 100%;
+      height: auto;
+      opacity: 0;
+      animation: fadeInVideo 2s ease forwards;
+      animation-delay: 0.5s;
+    }
+
+    @keyframes fadeInVideo {
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barre du haut -->
+  <div class="navbar">
+    <img src="logo.png" alt="Logo Carl-Frédéric" class="logo">
+
+    <div class="menu-center">
+      <a href="quiestce.html" class="transition-link">Qui est-ce ?</a>
+    </div>
+
+    <div class="menu-right">
+      <a href="mailto:carlfredericmarcaurele@gmail.com">Contact</a>
+    </div>
+  </div>
+
+  <!-- Contenu -->
+  <div class="content">
+    <video class="video-fullwidth" autoplay loop muted playsinline>
+      <source src="videos/horizontal_bike.mov" type="video/quicktime">
+      Ton navigateur ne supporte pas la vidéo HTML5.
+    </video>
+  </div>
+
+  <script>
+    // Au chargement → fade in
+    window.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("fade-in");
+    });
+
+    // Gérer les liens avec animation de sortie
+    document.querySelectorAll(".transition-link").forEach(link => {
+      link.addEventListener("click", function(e) {
+        e.preventDefault(); // Bloque la navigation instantanée
+        const href = this.getAttribute("href");
+
+        // Ajoute la classe fade-out
+        document.body.classList.remove("fade-in");
+        document.body.classList.add("fade-out");
+
+        // Attend la fin de la transition avant de changer de page
+        setTimeout(() => {
+          window.location.href = href;
+        }, 800); // doit correspondre à transition: 0.8s
+      });
+    });
+  </script>
+
+</body>
+</html>
