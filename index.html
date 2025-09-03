@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carl-Frédéric</title>
+  <title>Carl‑Frédéric</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
     body {
@@ -26,67 +26,35 @@
       grid-template-columns: 200px 1fr 200px;
       align-items: center;
       padding: 20px;
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255,255,255,0.8);
       z-index: 1000;
     }
-
-    .logo {
-      width: 200px;
-      height: auto;
-      opacity: 0;
-      animation: fadeIn 2s ease forwards;
-      cursor: pointer;
-    }
-
+    .logo { width: 200px; height: auto; opacity: 0; animation: fadeIn 2s ease forwards; cursor: pointer; }
     @keyframes fadeIn { to { opacity: 1; } }
-
     .menu-center { text-align: center; transform: translateX(-40px) translateY(70px); }
     .menu-right { text-align: right; transform: translateX(-60px) translateY(70px); }
-
-    .navbar a {
-      font-size: 0.9rem;
-      text-decoration: none;
-      color: #333;
-      transition: all 0.2s ease;
-      cursor: pointer;
-    }
+    .navbar a { font-size: 0.9rem; text-decoration: none; color: #333; transition: all 0.2s ease; }
     .navbar a:hover { font-weight: bold; }
 
     .content { padding-top: 250px; }
-    .video-fullwidth {
-      display: block;
-      width: 100%;
-      height: auto;
-      opacity: 0;
-      animation: fadeInVideo 2s ease forwards;
-      animation-delay: 0.5s;
-    }
+    .video-fullwidth { display: block; width: 100%; height: auto; opacity: 0; animation: fadeInVideo 2s ease forwards; animation-delay: 0.5s; }
     @keyframes fadeInVideo { to { opacity: 1; } }
 
-    /* Footer */
-    footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      text-align: center;
-      font-size: 0.6rem;
-      color: #aaa;
-      padding: 5px 0;
-    }
+    footer { text-align: center; font-size: 0.65rem; color: #aaa; padding: 20px; margin-top: 50px; }
 
-    /* Responsive */
+    /* Mobile responsiveness */
     @media (max-width: 600px) {
+      .logo { width: 120px; }
       .navbar a { font-size: 0.7rem; }
-      .menu-center { transform: translateX(-30px) translateY(50px); }
-      .menu-right { transform: translateX(-30px) translateY(50px); }
-      .logo { width: 150px; }
+      .menu-center { transform: translateX(-20px) translateY(50px); }
+      .menu-right { transform: translateX(-20px) translateY(50px); }
     }
   </style>
 </head>
 <body>
 
   <div class="navbar">
-    <img src="svg/logo.svg" alt="Logo Carl-Frédéric" class="logo" id="logo-link">
+    <img src="svg/logo.svg" alt="Logo Carl‑Frédéric" class="logo" id="logo-link">
     <div class="menu-center">
       <a href="quiestce.html" class="transition-link">Qui est-ce ?</a>
     </div>
@@ -103,7 +71,7 @@
   </div>
 
   <footer>
-    Site web développé imparfaitement par moi :) &copy; Carl-Frédéric Marc-Aurèle
+    Site web développé imparfaitement par moi :) © Carl‑Frédéric Marc‑Aurèle
   </footer>
 
   <script>
