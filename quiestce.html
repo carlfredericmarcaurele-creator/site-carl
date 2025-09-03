@@ -3,150 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Qui est-ce ? - Carl-Frédéric</title>
-  <!-- Import typo rétro -->
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <title>Qui est-ce</title>
   <style>
     body {
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #fff;
-      font-family: 'Press Start 2P', cursive, sans-serif;
-      opacity: 0;
-      transition: opacity 0.8s ease;
-    }
-
-    body.fade-in { opacity: 1; }
-    body.fade-out { opacity: 0; }
-
-    /* Navbar */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      display: grid;
-      grid-template-columns: 200px 1fr 200px;
-      align-items: center;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.8);
-      z-index: 1000;
-    }
-
-    .logo {
-      width: 200px;
-      height: auto;
-      cursor: pointer;
-    }
-
-    .menu-center {
+      background-color: #f4f4f4;
       text-align: center;
-      transform: translateX(-60px) translateY(70px);
     }
-
-    .menu-right {
-      text-align: right;
-      transform: translateX(-60px) translateY(70px);
+    header {
+      background-color: #333;
+      padding: 15px;
     }
-
-    .navbar a {
-      font-size: 0.9rem;
+    header img {
+      height: 60px;
+    }
+    nav {
+      margin: 15px 0;
+    }
+    nav a {
+      margin: 0 15px;
       text-decoration: none;
       color: #333;
-      transition: all 0.2s ease;
-      cursor: pointer;
+      font-weight: bold;
     }
-
-    .navbar a:hover { font-weight: bold; }
-
-    /* Contenu */
-    .content { 
-      padding-top: 250px;
-      display: flex;
-      align-items: center; /* centre vertical */
-      justify-content: center;
-      gap: 40px; /* espace entre texte et photo */
-      flex-wrap: wrap; /* s’adapte sur mobile */
-    }
-
-    /* Photo Carl */
-    .photo-carl {
-      width: 300px;
-      max-width: 80%;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1.5s ease forwards;
-      animation-delay: 0.5s;
-    }
-
-    @keyframes fadeInUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Texte bio à gauche de la photo */
-    .bio {
-      max-width: 400px; /* zone de texte plus large */
-      color: #333;
-      line-height: 1.5;
-      font-size: 0.85rem; /* texte un peu plus petit */
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1.5s ease forwards;
-      animation-delay: 1s; /* apparaît après la photo */
+    section {
+      padding: 40px;
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+      text-align: justify; /* ✅ texte justifié */
     }
   </style>
 </head>
 <body>
+  <header>
+    <a href="index.html"><img src="svg/logo.svg" alt="Logo"></a>
+  </header>
 
-  <!-- Navbar -->
-  <div class="navbar">
-    <img src="logo.png" alt="Logo Carl-Frédéric" class="logo" id="logo-link">
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="quiestce.html">Qui est-ce</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-    <div class="menu-center">
-      <a href="quiestce.html" class="transition-link">Qui est-ce ?</a>
-    </div>
-
-    <div class="menu-right">
-      <a href="mailto:contact@carlfrederic.com">Contact</a>
-    </div>
-  </div>
-
-  <!-- Contenu -->
-  <div class="content">
-    <div class="bio">
-      <p> Passionné par les aventures, les créations audiovisuelles ont toujours fait parties intégrantes de ma vie. C'est après l'obtention d'un baccalauréat en géomatique que le fruit de mes intérets créatifs se concrétisent en services audiovisuels au profit de gens avec des projets inspirants.</p>
-      <p> C'est en faisant n'importe quoi qu'on devient n'importe qui.</p>
-    </div>
-
-    <img src="carl.jpg" alt="Carl-Frédéric" class="photo-carl">
-  </div>
-
-  <script>
-    // Fade in au chargement
-    window.addEventListener("DOMContentLoaded", () => {
-      document.body.classList.add("fade-in");
-    });
-
-    // Transition pour liens "Qui est-ce ?"
-    document.querySelectorAll(".transition-link").forEach(link => {
-      link.addEventListener("click", function(e) {
-        e.preventDefault();
-        const href = this.getAttribute("href");
-        document.body.classList.remove("fade-in");
-        document.body.classList.add("fade-out");
-        setTimeout(() => { window.location.href = href; }, 800);
-      });
-    });
-
-    // Transition pour logo (redirige vers carlfrederic.html)
-    document.getElementById("logo-link").addEventListener("click", function() {
-      document.body.classList.remove("fade-in");
-      document.body.classList.add("fade-out");
-      setTimeout(() => { 
-        window.location.href = "carlfrederic.html";
-      }, 800);
-    });
-  </script>
-
+  <section>
+    <h1>Qui est-ce</h1>
+    <p>
+      Passionné par les aventures, les créations audiovisuelles ont toujours fait partie intégrante de ma vie. 
+      C'est après l'obtention d'un baccalauréat en géomatique que le fruit de mes intérêts créatifs se concrétise 
+      en services audiovisuels au profit de projets inspirants.
+    </p>
+  </section>
 </body>
 </html>
