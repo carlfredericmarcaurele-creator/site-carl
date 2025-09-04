@@ -31,12 +31,12 @@
     }
     .logo { width: 200px; height: auto; opacity: 0; animation: fadeIn 2s ease forwards; cursor: pointer; }
     @keyframes fadeIn { to { opacity: 1; } }
-    .menu-center { text-align: center; transform: translateX(-40px) translateY(70px); }
-    .menu-right { text-align: right; transform: translateX(-60px) translateY(70px); }
+    .menu-center { text-align: center; }
+    .menu-right { text-align: right; }
     .navbar a { font-size: 0.9rem; text-decoration: none; color: #333; transition: all 0.2s ease; }
     .navbar a:hover { font-weight: bold; }
 
-    .content { padding-top: 250px; }
+    .content { padding-top: 180px; }
     .video-fullwidth { display: block; width: 100%; height: auto; opacity: 0; animation: fadeInVideo 2s ease forwards; animation-delay: 0.5s; }
     @keyframes fadeInVideo { to { opacity: 1; } }
 
@@ -44,9 +44,8 @@
 
     @media (max-width: 600px) {
       .logo { width: 120px; }
-      .navbar a { font-size: 0.7rem; }
-      .menu-center { transform: translateX(-20px) translateY(50px); }
-      .menu-right { transform: translateX(-20px) translateY(50px); }
+      .navbar a { font-size: 0.55rem; }
+      .content { padding-top: 140px; }
     }
   </style>
 </head>

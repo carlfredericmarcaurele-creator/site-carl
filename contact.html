@@ -11,12 +11,12 @@
 
     .navbar { position: fixed; top:0; left:0; width:100%; display:grid; grid-template-columns:200px 1fr 200px; align-items:center; padding:20px; background: rgba(255,255,255,0.8); z-index:1000; }
     .logo { width:200px; height:auto; cursor:pointer; }
-    .menu-center { text-align:center; transform:translateX(-40px) translateY(70px); }
-    .menu-right { text-align:right; transform:translateX(-60px) translateY(70px); }
+    .menu-center { text-align:center; }
+    .menu-right { text-align:right; }
     .navbar a{ font-size:0.9rem; text-decoration:none; color:#333; transition:all 0.2s ease; }
     .navbar a:hover{ font-weight:bold; }
 
-    .content{padding-top:250px; display:flex; justify-content:center;}
+    .content{padding-top:180px; display:flex; justify-content:center;}
     form{display:flex; flex-direction:column; gap:20px; width:400px; max-width:90%; background:#fff; padding:30px; border-radius:12px; box-shadow:0px 4px 10px rgba(0,0,0,0.2);}
     label{font-size:0.7rem; display:flex; flex-direction:column; gap:8px;}
     input, textarea{font-family:inherit; font-size:0.7rem; padding:10px; border:2px solid #333; border-radius:8px; width:100%; box-sizing:border-box;}
@@ -28,9 +28,8 @@
 
     @media(max-width:600px){
       .logo{width:120px;}
-      .navbar a{font-size:0.7rem;}
-      .menu-center{transform:translateX(-20px) translateY(50px);}
-      .menu-right{transform:translateX(-20px) translateY(50px);}
+      .navbar a{font-size:0.55rem;}
+      .content{padding-top:140px;}
       form{width:90%;}
     }
   </style>
