@@ -27,14 +27,24 @@
     footer{ text-align:center; font-size:0.5rem; color:#aaa; padding:10px; margin-top:20px; }
 
     @media (max-width: 600px) {
+  /* Logo plus petit */
   .logo { width: 120px; }
-  .navbar a { font-size: 0.45rem; } /* réduit encore la taille des onglets */
+
+  /* Onglets plus petits et plus rapprochés */
+  .navbar a {
+    font-size: 0.45rem;     /* plus petit */
+    margin: 0 5px;          /* réduit l’espace entre Qui est-ce ? et Contact */
+  }
   .menu-center { transform: translateX(-10px) translateY(40px); }
   .menu-right { transform: translateX(-10px) translateY(40px); }
 
-  /* réduction de l’espace logo-vidéo */
+  /* Réduction de l’espace logo ↔ vidéo */
   .content { padding-top: 200px; }
+
+  /* Footer texte plus petit */
+  footer { font-size: 0.4rem; }
 }
+
   </style>
 </head>
 <body>
