@@ -29,8 +29,7 @@
       background: rgba(255,255,255,0.8);
       z-index: 1000;
     }
-    .logo { width: 200px; height: auto; opacity: 0; animation: fadeIn 2s ease forwards; cursor: pointer; }
-    @keyframes fadeIn { to { opacity: 1; } }
+    .logo { width: 200px; height: auto; cursor: pointer; }
     .menu-center { text-align: center; transform: translateX(-40px) translateY(70px); }
     .menu-right { text-align: right; transform: translateX(-60px) translateY(70px); }
     .navbar a { font-size: 0.9rem; text-decoration: none; color: #333; transition: all 0.2s ease; }
@@ -42,26 +41,15 @@
 
     footer { text-align: center; font-size: 0.5rem; color: #aaa; padding: 10px; margin-top: 20px; }
 
- @media (max-width: 600px) {
-  /* Logo plus petit */
-  .logo { width: 120px; }
-
-  /* Taille du texte onglets */
-  .navbar a {
-    font-size: 0.45rem;   /* un peu plus grand que 0.55rem → plus lisible */
-  }
-
-  /* Ajustement de position pour réduire l’espace entre Qui est-ce et Contact */
-  .menu-center { transform: translateX(-5px) translateY(40px); }
-  .menu-right  { transform: translateX(-25px) translateY(40px); }
-
-  /* Réduction de l’espace logo ↔ vidéo */
-  .content { padding-top: 180px; }
-
-  /* Footer plus petit mais pas trop */
-  footer { font-size: 0.45rem; }
-}
-
+    /* --- Ajustements MOBILE --- */
+    @media(max-width:600px){
+      .logo { width: 120px; }
+      .navbar a { font-size: 0.65rem; }
+      .menu-center { transform: translateX(-10px) translateY(40px); }
+      .menu-right { transform: translateX(-65px) translateY(40px); }
+      .content { padding-top: 180px; }
+      footer { font-size: 0.45rem; }
+    }
   </style>
 </head>
 <body>
