@@ -26,24 +26,26 @@
 
     footer{ text-align:center; font-size:0.5rem; color:#aaa; padding:10px; margin-top:20px; }
 
-    @media (max-width: 600px) {
+ @media (max-width: 600px) {
   /* Logo plus petit */
   .logo { width: 120px; }
 
-  /* Onglets plus petits et plus rapprochés */
+  /* Taille du texte onglets */
   .navbar a {
-    font-size: 0.45rem;     /* plus petit */
-    margin: 0 5px;          /* réduit l’espace entre Qui est-ce ? et Contact */
+    font-size: 0.45rem;   /* un peu plus grand que 0.55rem → plus lisible */
   }
-  .menu-center { transform: translateX(-10px) translateY(40px); }
-  .menu-right { transform: translateX(-10px) translateY(40px); }
+
+  /* Ajustement de position pour réduire l’espace entre Qui est-ce et Contact */
+  .menu-center { transform: translateX(-5px) translateY(40px); }
+  .menu-right  { transform: translateX(-25px) translateY(40px); }
 
   /* Réduction de l’espace logo ↔ vidéo */
-  .content { padding-top: 200px; }
+  .content { padding-top: 180px; }
 
-  /* Footer texte plus petit */
-  footer { font-size: 0.4rem; }
+  /* Footer plus petit mais pas trop */
+  footer { font-size: 0.45rem; }
 }
+
 
   </style>
 </head>
