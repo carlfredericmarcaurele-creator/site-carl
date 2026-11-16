@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Qui suis-je ? - Carl-Frédéric</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=3">
   <style>
     .content{
@@ -16,8 +16,12 @@
       opacity:0; transform:translateY(20px); animation:fadeInUp 1.5s ease forwards; animation-delay:1s;
       text-align:left;
     }
-    /* Texte de la bio : police mono plus lisible (le titre reste en pixel) */
-    .bio p:not(.animated-text){ font-family:'IBM Plex Mono', monospace; font-size:0.95rem; line-height:1.65; }
+    /* Bio façon lettre : alinéa, justifiée, césure pour éviter les trous */
+    .bio p:not(.animated-text){
+      text-align:justify; text-indent:1.5em; hyphens:auto; -webkit-hyphens:auto;
+      word-spacing:-0.15em; margin:0 0 0.9em; text-wrap:pretty;
+    }
+    .bio p:last-child{ text-align:left; }
     .animated-text {
       font-weight: bold;
       animation: colorChange 4s infinite;
@@ -50,7 +54,7 @@
 
     @media(max-width:600px){
       .bio{font-size:0.5rem; max-width:90%; line-height:1.6;}
-      .bio p:not(.animated-text){ font-size:0.9rem; line-height:1.6; }
+
       .slideshow{width:70%;}
     }
   </style>
@@ -70,7 +74,7 @@
 <div class="content">
   <div class="bio">
     <p class="animated-text">One man army de la production vidéo</p>
-    <p>De l’idéation à la réalisation, de la direction photo au montage, mon parcours m’a permis de toucher à des productions des plus reculées aux plus traditionnelles. Ma spécialité&nbsp;: capter l’action extrême, peu importe le terrain.</p>
+    <p>De l’idéation à la réalisation, de la direction photo au montage, mon parcours m’a permis de toucher à des productions des plus reculées aux plus tradi&shy;tion&shy;nelles. Ma spé&shy;cia&shy;lité&nbsp;: capter l’action extrême, peu importe le terrain.</p>
     <p>T’as un projet cinglé ? <span style="white-space:nowrap">Appelle-moi&nbsp;!</span></p>
   </div>
 
