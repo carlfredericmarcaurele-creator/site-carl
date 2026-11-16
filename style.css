@@ -1,0 +1,65 @@
+/* ===== Styles communs à toutes les pages ===== */
+:root {
+  --font: 'Press Start 2P', cursive, sans-serif;
+  --ink: #333;
+  --muted: #999;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  color: var(--ink);
+  font-family: var(--font);
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+body.fade-in { opacity: 1; }
+body.fade-out { opacity: 0; }
+
+/* --- Barre du haut (disposition d'origine + Work) --- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20px;
+  background: rgba(255,255,255,0.8);
+  z-index: 1000;
+}
+.logo { width: 200px; height: auto; cursor: pointer; }
+/* Work, Infos, Contact : centrés sur la page, espacés également */
+.menu-center { display: flex; justify-content: center; gap: 50px; transform: translateY(70px); white-space: nowrap; }
+.menu-right { }
+.navbar a {
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.2s ease;
+  display: inline-block;
+  padding: 10px 15px;
+}
+.navbar a:hover { font-weight: bold; }
+
+.content { padding-top: 250px; }
+
+footer { text-align: center; font-size: 0.5rem; color: #aaa; padding: 10px; margin-top: 20px; }
+
+/* --- Ajustements MOBILE --- */
+@media (max-width: 600px) {
+  /* Sur téléphone : logo en haut, puis les 3 liens sur une ligne, espacés également */
+  .navbar { grid-template-columns: 1fr; padding: 12px 14px 4px; }
+  .logo { width: 92px; }
+  .navbar a {
+    font-size: 0.62rem;
+    padding: 12px 4px;
+  }
+  .menu-center { justify-content: space-evenly; gap: 0; transform: none; }
+  .menu-right { display: none; }
+  .content { padding-top: 175px; }
+  footer { font-size: 0.25rem; }
+}

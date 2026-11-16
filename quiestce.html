@@ -5,46 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Qui suis-je ? - Carl-Frédéric</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=3">
   <style>
-    body { 
-      margin:0; padding:0; background-color:#fff; font-family:'Press Start 2P', cursive, sans-serif; 
-      opacity:0; transition:opacity 0.8s ease; 
+    .content{
+      padding-left:20px; padding-right:20px;
+      display:flex; align-items:center; justify-content:center; gap:40px; flex-wrap:wrap;
     }
-    body.fade-in{opacity:1;} 
-    body.fade-out{opacity:0;}
-
-    .navbar { 
-      position: fixed; top:0; left:0; width:100%; display:grid; grid-template-columns:200px 1fr 200px; align-items:center; padding:20px; background: rgba(255,255,255,0.8); z-index:1000; 
-    }
-    .logo { width:200px; height:auto; cursor:pointer; }
-    .menu-center { text-align:center; transform: translateX(-60px) translateY(70px); }
-    .menu-right { text-align:right; transform: translateX(-60px) translateY(70px); }
-    .navbar a{ 
-      font-size:0.9rem; 
-      text-decoration:none; 
-      color:#333; 
-      transition:all 0.2s ease; 
-      display:inline-block; 
-      padding:10px 15px;
-    }
-    .navbar a:hover{ font-weight:bold; }
-
-    .content{ 
-      padding-top:250px; display:flex; align-items:center; justify-content:center; gap:40px; flex-wrap:wrap; 
-    }
-    .photo-carl{ 
-      width:300px; max-width:80%; opacity:0; transform:translateY(20px); 
-      animation:fadeInUp 1.5s ease forwards; animation-delay:0.5s; 
-    }
-    .bio{ 
-      max-width:400px; color:#333; line-height:1.5; font-size:0.85rem; 
-      opacity:0; transform:translateY(20px); animation:fadeInUp 1.5s ease forwards; animation-delay:1s; 
-      text-align:justify; 
+    .bio{
+      max-width:400px; color:#333; line-height:1.5; font-size:0.85rem;
+      opacity:0; transform:translateY(20px); animation:fadeInUp 1.5s ease forwards; animation-delay:1s;
+      text-align:justify;
     }
     .animated-text {
       font-weight: bold;
       animation: colorChange 4s infinite;
     }
+
+    /* Diaporama : les photos se fondent l'une dans l'autre */
+    .slideshow{
+      position:relative; width:300px; max-width:80%; aspect-ratio:2 / 3;
+      opacity:0; transform:translateY(20px);
+      animation:fadeInUp 1.5s ease forwards; animation-delay:0.5s;
+    }
+    .slideshow img{
+      position:absolute; inset:0; width:100%; height:100%;
+      object-fit:contain; opacity:0; transform:scale(1);
+      transition:opacity 1s ease, transform 3.2s ease-out;
+    }
+    .slideshow img.show{ opacity:1; transform:scale(1.05); }
+    /* Intro « flipbook » : les photos défilent vite, sans fondu */
+    .slideshow.flip img{ transition:none; transform:scale(1); }
 
     @keyframes fadeInUp{to{opacity:1; transform:translateY(0);}}
 
@@ -56,21 +46,9 @@
       100% { color: #ff0000; }
     }
 
-    footer{ text-align:center; font-size:0.5rem; color:#aaa; padding:10px; margin-top:20px; }
-
-    /* --- Ajustements MOBILE --- */
     @media(max-width:600px){
-      .logo{width:120px;}
-      .navbar a{
-        font-size:0.85rem;
-        padding:12px 18px;
-      }
-      .menu-center{transform:translateX(-60px) translateY(40px);}
-      .menu-right{transform:translateX(-125px) translateY(40px);}
-      .content{padding-top:180px;}
       .bio{font-size:0.55rem; max-width:90%; line-height:1.4;}
-      .photo-carl{width:70%;}
-      footer{font-size:0.25rem;}
+      .slideshow{width:70%;}
     }
   </style>
 </head>
@@ -79,41 +57,58 @@
 <div class="navbar">
   <img src="svg/logo.png" alt="Logo Carl-Frédéric" class="logo" id="logo-link">
   <div class="menu-center">
+    <a href="work.html" class="transition-link">Portfolio</a>
     <a href="quiestce.html" class="transition-link">Infos</a>
-  </div>
-  <div class="menu-right">
     <a href="contact.html" class="transition-link">Contact</a>
   </div>
+  <div class="menu-right"></div>
 </div>
 
 <div class="content">
   <div class="bio">
     <p class="animated-text">One man army de la production vidéo</p>
-<p>Les créations audiovisuelles ont toujours chevauché mes passions, se mêlant à chacun de mes périples et projets. C'est après l'obtention d'un baccalauréat en géomatique que le fruit de mes intérêts créatifs se concrétise en services audiovisuels au profit de gens passionnées par leurs idées.</p>
+    <p>Les créations audiovisuelles ont toujours chevauché mes passions, se mêlant à chacun de mes périples et projets. C'est après l'obtention d'un baccalauréat en géomatique que le fruit de mes intérêts créatifs se concrétise en services audiovisuels au profit de gens passionnées par leurs idées.</p>
   </div>
-  <img src="svg/carl.jpg" alt="Carl-Frédéric" class="photo-carl">
+
+  <!-- Pour ajouter une photo : la mettre dans svg/qui/ et ajouter une ligne <img> ici -->
+  <div class="slideshow" id="slideshow">
+    <img src="svg/qui/photo1.jpg" alt="Carl-Frédéric" class="show">
+    <img src="svg/qui/photo2.jpg" alt="Carl-Frédéric">
+    <img src="svg/qui/photo3.jpg" alt="Carl-Frédéric">
+    <img src="svg/qui/photo4.jpg" alt="Carl-Frédéric">
+    <img src="svg/qui/photo5.jpg" alt="Carl-Frédéric en tournage">
+    <img src="svg/qui/photo6.jpg" alt="Carl-Frédéric en tournage">
+    <img src="svg/qui/photo7.jpg" alt="Carl-Frédéric en tournage">
+  </div>
 </div>
 
 <footer>
-  Site web programmé maison © Carl-Frédéric Marc-Aurèle
+  © Carl-Frédéric Marc-Aurèle
 </footer>
 
+<script src="site.js"></script>
 <script>
-  window.addEventListener("DOMContentLoaded",()=>{document.body.classList.add("fade-in");});
-  document.querySelectorAll(".transition-link").forEach(link=>{
-    link.addEventListener("click",function(e){
-      e.preventDefault();
-      const href=this.getAttribute("href");
-      document.body.classList.remove("fade-in");
-      document.body.classList.add("fade-out");
-      setTimeout(()=>{window.location.href=href;},800);
-    });
-  });
-  document.getElementById("logo-link").addEventListener("click",function(){
-    document.body.classList.remove("fade-in");
-    document.body.classList.add("fade-out");
-    setTimeout(()=>{window.location.href="index.html";},800);
-  });
+  // À l'arrivée : les photos défilent vite (effet flipbook), puis s'arrêtent sur carl.jpg
+  const box = document.getElementById("slideshow");
+  const slides = box.querySelectorAll("img");
+  let current = 0;
+  function show(i) {
+    slides[current].classList.remove("show");
+    current = i % slides.length;
+    slides[current].classList.add("show");
+  }
+  box.classList.add("flip");
+  let step = 0;
+  const total = slides.length * 2;            // deux tours rapides
+  setTimeout(function flip() {
+    show(current + 1);
+    step++;
+    if (step < total) {
+      setTimeout(flip, 90 + step * 12);       // ralentit petit à petit
+    } else {
+      // s'arrête net sur carl.jpg (photo1), sans fondu ni zoom
+    }
+  }, 600);
 </script>
 
 </body>

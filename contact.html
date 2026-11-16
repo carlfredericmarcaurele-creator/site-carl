@@ -5,46 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact - Carl-Frédéric</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=3">
   <style>
-    body { margin:0; padding:0; background-color:#f5f5f5; font-family:'Press Start 2P', cursive, sans-serif; opacity:0; transition:opacity 0.8s ease; }
-    body.fade-in{opacity:1;} body.fade-out{opacity:0;}
-
-    .navbar { position: fixed; top:0; left:0; width:100%; display:grid; grid-template-columns:200px 1fr 200px; align-items:center; padding:20px; background: rgba(255,255,255,0.8); z-index:1000; }
-    .logo { width:200px; height:auto; cursor:pointer; }
-    .menu-center { text-align:center; transform:translateX(-40px) translateY(70px); }
-    .menu-right { text-align:right; transform:translateX(-60px) translateY(70px); }
-    .navbar a{ 
-      font-size:0.9rem; 
-      text-decoration:none; 
-      color:#333; 
-      transition:all 0.2s ease; 
-      display:inline-block; 
-      padding:10px 15px;
-    }
-    .navbar a:hover{ font-weight:bold; }
-
-    .content{padding-top:250px; display:flex; justify-content:center;}
+    body { background-color:#f5f5f5; }
+    .content{display:flex; justify-content:center;}
     form{display:flex; flex-direction:column; gap:20px; width:400px; max-width:90%; background:#fff; padding:30px; border-radius:12px; box-shadow:0px 4px 10px rgba(0,0,0,0.2);}
     label{font-size:0.7rem; display:flex; flex-direction:column; gap:8px;}
     input, textarea{font-family:inherit; font-size:0.7rem; padding:10px; border:2px solid #333; border-radius:8px; width:100%; box-sizing:border-box;}
     textarea{resize:vertical; min-height:120px;}
     button{font-family:inherit; font-size:0.75rem; padding:12px; border:none; border-radius:8px; background:#333; color:#fff; cursor:pointer; transition:all 0.2s ease;}
     button:hover{background:#555;}
-
-    footer{ text-align:center; font-size:0.5rem; color:#aaa; padding:10px; margin-top:20px; }
-
-    /* --- Ajustements MOBILE --- */
-    @media(max-width:600px){
-      .logo{width:120px;}
-      .navbar a{
-        font-size:0.85rem;
-        padding:12px 18px;
-      }
-      .menu-center{transform:translateX(-60px) translateY(40px);}
-      .menu-right{transform:translateX(-125px) translateY(40px);}
-      .content{padding-top:180px;}
-      footer{font-size:0.25rem;}
-    }
   </style>
 </head>
 <body>
@@ -52,11 +22,11 @@
 <div class="navbar">
   <img src="svg/logo.png" alt="Logo Carl-Frédéric" class="logo" id="logo-link">
   <div class="menu-center">
+    <a href="work.html" class="transition-link">Portfolio</a>
     <a href="quiestce.html" class="transition-link">Infos</a>
-  </div>
-  <div class="menu-right">
     <a href="contact.html" class="transition-link">Contact</a>
   </div>
+  <div class="menu-right"></div>
 </div>
 
 <div class="content">
@@ -69,26 +39,9 @@
 </div>
 
 <footer>
-  Site web programmé maison © Carl-Frédéric Marc-Aurèle
+  © Carl-Frédéric Marc-Aurèle
 </footer>
 
-<script>
-  window.addEventListener("DOMContentLoaded",()=>{document.body.classList.add("fade-in");});
-  document.querySelectorAll(".transition-link").forEach(link=>{
-    link.addEventListener("click",function(e){
-      e.preventDefault();
-      const href=this.getAttribute("href");
-      document.body.classList.remove("fade-in");
-      document.body.classList.add("fade-out");
-      setTimeout(()=>{window.location.href=href;},800);
-    });
-  });
-  document.getElementById("logo-link").addEventListener("click",function(){
-    document.body.classList.remove("fade-in");
-    document.body.classList.add("fade-out");
-    setTimeout(()=>{window.location.href="index.html";},800);
-  });
-</script>
-
+<script src="site.js"></script>
 </body>
 </html>

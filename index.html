@@ -8,7 +8,7 @@
   <!-- Open Graph (Facebook, Messenger, Instagram) -->
   <meta property="og:title" content="Carl-Frédéric – Vidéaste" />
   <meta property="og:description" content="Stratégie de contenu, projets et vidéos créatifs." />
-  <meta property="og:image" content="https://carlfrederic.com/svg/carl.jpg" />
+  <meta property="og:image" content="https://carlfrederic.com/svg/qui/photo1.jpg" />
   <meta property="og:url" content="https://carlfrederic.com" />
   <meta property="og:type" content="website" />
 
@@ -16,77 +16,26 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Carl-Frédéric – Vidéaste" />
   <meta name="twitter:description" content="Stratégie de contenu, projets et vidéos créatifs." />
-  <meta name="twitter:image" content="https://carlfrederic.com/svg/stills.jpg" />
+  <meta name="twitter:image" content="https://carlfrederic.com/svg/qui/photo1.jpg" />
 
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=3">
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #fff;
-      font-family: 'Press Start 2P', cursive, sans-serif;
-      opacity: 0;
-      transition: opacity 0.8s ease;
-    }
-    body.fade-in { opacity: 1; }
-    body.fade-out { opacity: 0; }
-
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      display: grid;
-      grid-template-columns: 200px 1fr 200px;
-      align-items: center;
-      padding: 20px;
-      background: rgba(255,255,255,0.8);
-      z-index: 1000;
-    }
-    .logo { width: 200px; height: auto; cursor: pointer; }
-    .menu-center { text-align: center; transform: translateX(-40px) translateY(70px); }
-    .menu-right { text-align: right; transform: translateX(-60px) translateY(70px); }
-    .navbar a { 
-      font-size: 0.9rem; 
-      text-decoration: none; 
-      color: #333; 
-      transition: all 0.2s ease; 
-      display: inline-block;
-      padding: 10px 15px;
-    }
-    .navbar a:hover { font-weight: bold; }
-
-    .content { padding-top: 250px; }
     .video-fullwidth { display: block; width: 100%; height: auto; opacity: 0; animation: fadeInVideo 2s ease forwards; animation-delay: 0.5s; }
     @keyframes fadeInVideo { to { opacity: 1; } }
-
-    footer { text-align: center; font-size: 0.5rem; color: #aaa; padding: 10px; margin-top: 20px; }
-
-    /* --- Ajustements MOBILE --- */
-    @media(max-width:600px){
-      .logo { width: 120px; }
-      .navbar a { 
-        font-size: 0.85rem; 
-        padding: 12px 18px;
-      }
-      .menu-center { transform: translateX(-60px) translateY(40px); }
-      .menu-right { transform: translateX(-125px) translateY(40px); }
-      .content { padding-top: 180px; }
-      footer { font-size: 0.25rem; }
-    }
   </style>
 </head>
 <body>
 
-  <div class="navbar">
-    <img src="svg/logo.png" alt="Logo Carl-Frédéric" class="logo" id="logo-link">
-    <div class="menu-center">
-      <a href="quiestce.html" class="transition-link">Infos</a>
-    </div>
-    <div class="menu-right">
-      <a href="contact.html" class="transition-link">Contact</a>
-    </div>
+<div class="navbar">
+  <img src="svg/logo.png" alt="Logo Carl-Frédéric" class="logo" id="logo-link">
+  <div class="menu-center">
+    <a href="work.html" class="transition-link">Portfolio</a>
+    <a href="quiestce.html" class="transition-link">Infos</a>
+    <a href="contact.html" class="transition-link">Contact</a>
   </div>
+  <div class="menu-right"></div>
+</div>
 
   <div class="content">
     <video class="video-fullwidth" autoplay loop muted playsinline>
@@ -96,26 +45,9 @@
   </div>
 
   <footer>
-    Site web programmé maison © Carl-Frédéric Marc-Aurèle
+    © Carl-Frédéric Marc-Aurèle
   </footer>
 
-  <script>
-    window.addEventListener("DOMContentLoaded", () => { document.body.classList.add("fade-in"); });
-    document.querySelectorAll(".transition-link").forEach(link => {
-      link.addEventListener("click", function(e) {
-        e.preventDefault();
-        const href = this.getAttribute("href");
-        document.body.classList.remove("fade-in");
-        document.body.classList.add("fade-out");
-        setTimeout(() => { window.location.href = href; }, 800);
-      });
-    });
-    document.getElementById("logo-link").addEventListener("click", function() {
-      document.body.classList.remove("fade-in");
-      document.body.classList.add("fade-out");
-      setTimeout(() => { window.location.href = "index.html"; }, 800);
-    });
-  </script>
-
+  <script src="site.js"></script>
 </body>
 </html>
