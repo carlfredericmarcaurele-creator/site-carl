@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Qui suis-je ? - Carl-Frédéric</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=3">
   <style>
     .content{
@@ -16,6 +16,8 @@
       opacity:0; transform:translateY(20px); animation:fadeInUp 1.5s ease forwards; animation-delay:1s;
       text-align:left;
     }
+    /* Texte de la bio : police mono plus lisible (le titre reste en pixel) */
+    .bio p:not(.animated-text){ font-family:'IBM Plex Mono', monospace; font-size:0.95rem; line-height:1.65; }
     .animated-text {
       font-weight: bold;
       animation: colorChange 4s infinite;
@@ -48,6 +50,7 @@
 
     @media(max-width:600px){
       .bio{font-size:0.5rem; max-width:90%; line-height:1.6;}
+      .bio p:not(.animated-text){ font-size:0.9rem; line-height:1.6; }
       .slideshow{width:70%;}
     }
   </style>

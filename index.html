@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    // Sur téléphone, l'accueil mène directement au Portfolio
+    if (window.matchMedia("(max-width: 600px)").matches) { location.replace("work.html"); }
+  </script>
   <title>Carl-Frédéric</title>
 
   <!-- Open Graph (Facebook, Messenger, Instagram) -->
