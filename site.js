@@ -16,4 +16,4 @@ document.querySelectorAll(".transition-link").forEach(link => {
 });
 
 const logo = document.getElementById("logo-link");
-if (logo) logo.addEventListener("click", () => goTo("index.html"));
+if (logo) logo.addEventListener("click", () => goTo("work.html"));
