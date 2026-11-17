@@ -15,11 +15,24 @@ document.querySelectorAll(".transition-link").forEach(link => {
   });
 });
 
-// Barre du haut : en défilant, elle s'efface et devient une fine bande floutée
+// Barre du haut : en défilant, le logo s'efface et la barre devient une fine bande floutée avec les liens
 const nav = document.querySelector(".navbar");
 if (nav) {
   let navh = 0;
-  const measure = () => { nav.style.setProperty("--p", 0); navh = nav.offsetHeight; nav.style.setProperty("--navh", navh + "px"); update(); };
+  const menu = nav.querySelector(".menu-center");
+  const measure = () => {
+    nav.style.setProperty("--p", 0);
+    navh = nav.offsetHeight;
+    nav.style.setProperty("--navh", navh + "px");
+    // Les liens remontent jusqu'au centre d'une bande juste assez haute pour eux
+    if (menu) {
+      const r = menu.getBoundingClientRect();
+      const strip = r.height + 8;
+      nav.style.setProperty("--strip", strip + "px");
+      nav.style.setProperty("--menu-shift", (r.top - (strip - r.height) / 2) + "px");
+    }
+    update();
+  };
   const update = () => {
     const p = Math.min(1, Math.max(0, window.scrollY / (navh * 0.8)));
     nav.style.setProperty("--p", p.toFixed(3));

@@ -38,19 +38,20 @@ body.fade-out { opacity: 0; }
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: calc(var(--navh) - (var(--navh) - 22px) * var(--p));
-  background: rgba(255,255,255, calc(0.8 - 0.5 * var(--p)));
+  height: calc(var(--navh) - (var(--navh) - var(--strip, 22px)) * var(--p));
+  background: rgba(255,255,255, calc(0.8 - 0.25 * var(--p)));
   -webkit-backdrop-filter: blur(calc(10px * var(--p)));
   backdrop-filter: blur(calc(10px * var(--p)));
   z-index: -1;
 }
-/* Le logo et les liens disparaissent graduellement */
-.navbar > * {
+/* Le logo disparaît graduellement ; les liens remontent et restent dans la bande floutée */
+.navbar > * { pointer-events: auto; }
+.logo-link, .menu-right {
   opacity: calc(1 - 1.6 * var(--p));
   translate: 0 calc(-90px * var(--p));
-  pointer-events: auto;
 }
-.navbar.collapsed > * { pointer-events: none; }
+.navbar.collapsed .logo-link { pointer-events: none; }
+.menu-center { translate: 0 calc(var(--menu-shift, 0px) * -1 * var(--p)); }
 .navbar a.logo-link { display: block; line-height: 0; padding: 0; justify-self: start; }
 .logo-link::after { display: none; }
 .sr-only {
