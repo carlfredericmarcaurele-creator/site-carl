@@ -17,7 +17,7 @@ body {
 body.fade-in { opacity: 1; }
 body.fade-out { opacity: 0; }
 
-/* --- Barre du haut (disposition d'origine + Work) --- */
+/* --- Barre du haut --- */
 .navbar {
   position: fixed;
   top: 0;
@@ -28,8 +28,34 @@ body.fade-out { opacity: 0; }
   align-items: center;
   box-sizing: border-box;
   padding: 20px;
-  background: rgba(255,255,255,0.8);
   z-index: 1000;
+  --p: 0;              /* progression du scroll : 0 = en haut, 1 = barre réduite */
+  --navh: 240px;       /* hauteur de la barre, mesurée par site.js */
+  pointer-events: none;
+}
+/* Fond de la barre : blanc translucide qui devient une fine bande floutée en défilant */
+.navbar::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: calc(var(--navh) - (var(--navh) - 22px) * var(--p));
+  background: rgba(255,255,255, calc(0.8 - 0.5 * var(--p)));
+  -webkit-backdrop-filter: blur(calc(10px * var(--p)));
+  backdrop-filter: blur(calc(10px * var(--p)));
+  z-index: -1;
+}
+/* Le logo et les liens disparaissent graduellement */
+.navbar > * {
+  opacity: calc(1 - 1.6 * var(--p));
+  translate: 0 calc(-90px * var(--p));
+  pointer-events: auto;
+}
+.navbar.collapsed > * { pointer-events: none; }
+.navbar a.logo-link { display: block; line-height: 0; padding: 0; justify-self: start; }
+.logo-link::after { display: none; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
 }
 .logo { width: 200px; height: auto; cursor: pointer; }
 /* Work, Infos, Contact : centrés sur la page, espacés également */

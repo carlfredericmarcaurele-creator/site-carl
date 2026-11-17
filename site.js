@@ -15,5 +15,18 @@ document.querySelectorAll(".transition-link").forEach(link => {
   });
 });
 
-const logo = document.getElementById("logo-link");
-if (logo) logo.addEventListener("click", () => goTo("work.html"));
+// Barre du haut : en défilant, elle s'efface et devient une fine bande floutée
+const nav = document.querySelector(".navbar");
+if (nav) {
+  let navh = 0;
+  const measure = () => { nav.style.setProperty("--p", 0); navh = nav.offsetHeight; nav.style.setProperty("--navh", navh + "px"); update(); };
+  const update = () => {
+    const p = Math.min(1, Math.max(0, window.scrollY / (navh * 0.8)));
+    nav.style.setProperty("--p", p.toFixed(3));
+    nav.classList.toggle("collapsed", p > 0.7);
+  };
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", measure);
+  window.addEventListener("load", measure);
+  measure();
+}

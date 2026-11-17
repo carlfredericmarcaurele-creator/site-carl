@@ -1,123 +1,15 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr-CA">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Qui suis-je ? - Carl-Frédéric</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=3">
-  <style>
-    .content{
-      padding-left:20px; padding-right:20px;
-      display:flex; align-items:center; justify-content:center; gap:40px; flex-wrap:wrap;
-    }
-    .bio{
-      max-width:400px; color:#333; line-height:1.7; font-size:0.7rem;
-      opacity:0; transform:translateY(20px); animation:fadeInUp 1.5s ease forwards; animation-delay:1s;
-      text-align:left;
-    }
-    /* Bio façon lettre : alinéa, justifiée, césure pour éviter les trous */
-    .bio p:not(.animated-text){
-      text-align:justify; text-indent:1.5em; hyphens:auto; -webkit-hyphens:auto;
-      word-spacing:-0.15em; margin:0 0 0.9em; text-wrap:pretty;
-    }
-    .bio p:last-child{ text-align:left; }
-    .animated-text {
-      font-weight: bold;
-      animation: colorChange 4s infinite;
-    }
-
-    /* Diaporama : les photos se fondent l'une dans l'autre */
-    .slideshow{
-      position:relative; width:300px; max-width:80%; aspect-ratio:2 / 3;
-      opacity:0; transform:translateY(20px);
-      animation:fadeInUp 1.5s ease forwards; animation-delay:0.5s;
-    }
-    .slideshow img{
-      position:absolute; inset:0; width:100%; height:100%;
-      object-fit:contain; opacity:0; transform:scale(1);
-      transition:opacity 1s ease, transform 3.2s ease-out;
-    }
-    .slideshow img.show{ opacity:1; transform:scale(1.05); }
-    /* Intro « flipbook » : les photos défilent vite, sans fondu */
-    .slideshow.flip img{ transition:none; transform:scale(1); }
-
-    @keyframes fadeInUp{to{opacity:1; transform:translateY(0);}}
-
-    @keyframes colorChange {
-      0%   { color: #ff0000; }
-      25%  { color: #00ff00; }
-      50%  { color: #0000ff; }
-      75%  { color: #ff00ff; }
-      100% { color: #ff0000; }
-    }
-
-    @media(max-width:600px){
-      .bio{font-size:0.5rem; max-width:90%; line-height:1.6;}
-
-      .slideshow{width:70%;}
-    }
-  </style>
+  <!-- Ancienne adresse : redirige vers /infos/ (GitHub Pages ne permet pas les vraies 301) -->
+  <title>Infos — Carl-Frédéric Marc-Aurèle</title>
+  <link rel="canonical" href="https://carlfrederic.com/infos/">
+  <meta name="robots" content="noindex, follow">
+  <meta http-equiv="refresh" content="0; url=/infos/">
+  <script>location.replace("/infos/" + location.search + location.hash);</script>
 </head>
 <body>
-
-<div class="navbar">
-  <img src="svg/logo.png" alt="Logo Carl-Frédéric" class="logo" id="logo-link">
-  <div class="menu-center">
-    <a href="work.html" class="transition-link">Portfolio</a>
-    <a href="quiestce.html" class="transition-link">Infos</a>
-    <a href="contact.html" class="transition-link">Contact</a>
-  </div>
-  <div class="menu-right"></div>
-</div>
-
-<div class="content">
-  <div class="bio">
-    <p class="animated-text">One man army de la production vidéo</p>
-    <p>De l’idéation à la réalisation, de la direction photo au montage, mon parcours m’a permis de toucher à des productions des plus reculées aux plus tradi&shy;tion&shy;nelles. Ma spé&shy;cia&shy;lité&nbsp;: capter l’action extrême, peu importe le terrain.</p>
-    <p>T’as un projet cinglé ? <span style="white-space:nowrap">Appelle-moi&nbsp;!</span></p>
-  </div>
-
-  <!-- Pour ajouter une photo : la mettre dans svg/qui/ et ajouter une ligne <img> ici -->
-  <div class="slideshow" id="slideshow">
-    <img src="svg/qui/photo1.jpg" alt="Carl-Frédéric" class="show">
-    <img src="svg/qui/photo2.jpg" alt="Carl-Frédéric">
-    <img src="svg/qui/photo3.jpg" alt="Carl-Frédéric">
-    <img src="svg/qui/photo4.jpg" alt="Carl-Frédéric">
-    <img src="svg/qui/photo5.jpg" alt="Carl-Frédéric en tournage">
-    <img src="svg/qui/photo6.jpg" alt="Carl-Frédéric en tournage">
-    <img src="svg/qui/photo7.jpg" alt="Carl-Frédéric en tournage">
-  </div>
-</div>
-
-<footer>
-  © Carl-Frédéric Marc-Aurèle
-</footer>
-
-<script src="site.js?v=2"></script>
-<script>
-  // À l'arrivée : les photos défilent vite (effet flipbook), puis s'arrêtent sur carl.jpg
-  const box = document.getElementById("slideshow");
-  const slides = box.querySelectorAll("img");
-  let current = 0;
-  function show(i) {
-    slides[current].classList.remove("show");
-    current = i % slides.length;
-    slides[current].classList.add("show");
-  }
-  box.classList.add("flip");
-  let step = 0;
-  const total = slides.length * 2;            // deux tours rapides
-  setTimeout(function flip() {
-    show(current + 1);
-    step++;
-    if (step < total) {
-      setTimeout(flip, 90 + step * 12);       // ralentit petit à petit
-    } else {
-      // s'arrête net sur carl.jpg (photo1), sans fondu ni zoom
-    }
-  }, 600);
-</script>
-
+  <p>Cette page a déménagé : <a href="/infos/">https://carlfrederic.com/infos/</a></p>
 </body>
 </html>
